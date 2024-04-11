@@ -322,7 +322,7 @@ const buildMenuContent = (menuData, navEl) => {
   [...menus.children].forEach((menuItemData) => {
     const tabName = menuItemData.querySelector(':scope > p > a');
     const categories = [...menuItemData.querySelectorAll(':scope > div')];
-    const navLink = navLinks.find((el) => el.textContent.trim() === tabName.textContent.trim());
+    const navLink = navLinks.find((el) => tabName && el.textContent.trim() === tabName.textContent.trim());
     const accordionContentWrapper = navLink?.closest(`.${blockClass}__main-nav-item`).querySelector(`.${blockClass}__accordion-content-wrapper`);
 
     categories.filter((cat) => cat.classList.contains('menu')).forEach((cat) => {
